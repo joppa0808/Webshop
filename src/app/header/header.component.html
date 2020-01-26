@@ -1,0 +1,128 @@
+<!--<div style="height: 20vh">-->
+<!--<mat-toolbar color="primary">-->
+<!--<mat-toolbar-row>-->
+<!--<button-->
+<!--mat-icon-button-->
+<!--&gt;-->
+<!--<mat-icon>menu</mat-icon>-->
+<!--</button>-->
+<!--<a class="logo" [routerLink]="['/products']"></a>-->
+<!--<span class="pm-title">Product Mart</span>-->
+<!--<div fxShow="true" fxHide.lt-md="true">-->
+<!--<a mat-button routerLink="/products">Products</a>-->
+<!--</div>-->
+<!--<span class="header-spacer"></span>-->
+<!--<button *ngIf="!isLoggedIn"-->
+<!--type="button" class="btn btn-link"-->
+<!--routerLink="/login"-->
+<!--&gt;-->
+<!--<mat-icon>-->
+<!--person_outliner-->
+<!--</mat-icon>-->
+<!--Login</button-->
+<!--&gt;-->
+<!--<div *ngIf="isLoggedIn" class="row">-->
+<!--<div class="input-group-sm">-->
+<!--<ul  class="checkout ">-->
+<!--<a class="material-icons" [routerLink]="['/shopping-cart/' + currentUser.uid]">-->
+<!--shopping_cart-->
+
+<!--</a>-->
+<!--</ul>-->
+<!--<span id="checkout_items"  class="product-discount-label">{{shoppingcart[0].length}}</span>-->
+
+<!--</div>-->
+
+<!--</div>-->
+
+<!--<div>-->
+
+<!--<div  class="column ">-->
+<!--<p >{{currentUser.username}}</p>-->
+<!--</div>-->
+<!--<div class="column">-->
+<!--<button type="button" class="btn btn-link" (click)="logout()">Logout</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</mat-toolbar-row>-->
+<!--</mat-toolbar>-->
+
+<!--<mat-sidenav-container fxFlexFill>-->
+<!--<mat-sidenav #sidenav>-->
+<!--<mat-nav-list>-->
+<!--<a mat-list-item routerLink="/products" (click)="sidenav.toggle()">-->
+<!--Products-->
+<!--</a>-->
+<!--</mat-nav-list>-->
+<!--</mat-sidenav>-->
+<!--<mat-sidenav-content>-->
+<!--<router-outlet></router-outlet>-->
+<!--</mat-sidenav-content>-->
+<!--</mat-sidenav-container>-->
+<!--</div>-->
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//fonts.googleapis.com/css?family=Hind" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<div class="container">
+  <h1><span><img src="../assets/logobt.png" height="40"/></span></h1>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/products">
+        BT<span
+        class="text-danger"> FOR </span>Electronica
+      </a>
+    </div>
+
+    <div>
+
+      <div id="sk-top-welcome">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+          <li *ngIf="!isLoggedIn; else: other">
+          <!--<p style="float: left; margin-top: 10px; color: #85ad00">Online shoppen</p>-->
+            <button type="button" class="btn btn-danger btn-margin-right navbar-btn" routerLink="/login">
+              <i class="fa fa-sign-in" aria-hidden="true"></i> Inloggen
+            </button>
+          </li>
+          <ng-template #other>
+            <ul>
+                  <li style="color: white">
+                    Welkom {{currentUser.username}}
+                    <!--<button type="button" class="btn btn-success btn-margin-right navbar-btn">Register</button>-->
+                  </li>
+              <button type="button" class="btn btn-danger btn-margin-right navbar-btn" (click)="logout()">
+                <i class="fa fa-sign-in" aria-hidden="true"></i> Uitloggen
+              </button>
+              <li>
+                <i class="fa" style="font-size:24px; color: white; cursor: pointer" [routerLink]="['/shopping-cart/' + currentUser.uid]">&#xf07a;</i>
+                <span class='badge badge-warning' id='lblCartCount'>{{shoppingcart[0].length}}</span>
+              </li>
+
+            </ul>
+
+          </ng-template>
+        </ul>
+      </div>
+
+      <!--<div id="sk-top-modules">-->
+      <!--<ul class="nav navbar-nav navbar-right">-->
+      <!--<li><a href="#"><i class="fa fa-comments" aria-hidden="true"></i> Forums</a></li>-->
+      <!--<li><a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop</a></li>-->
+      <!--<li><a href="#"><i class="fa fa-plug" aria-hidden="true"></i> Extensions</a></li>-->
+      <!--</ul>-->
+      <!--</div>-->
+
+    </div>
+  </div>
+</nav>

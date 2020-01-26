@@ -1,0 +1,71 @@
+<app-header></app-header>
+<div id="register-form" >
+  <div class="container" style="background-color: #2c3e50">
+    <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-6">
+        <div id="login-box" class="col-md-12">
+          <form id="login-form" class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <h3 style="color: white; text-align: center" >Hier kunt u registreren</h3>
+            <div class="form-group">
+              <label for="email" class="text-info" >E-mail:</label><br>
+              <input type="text" name="email" id="email" class="form-control" formControlName="email" required="" minlength="3" maxlength="100"
+                     [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                     />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">-->
+              <div *ngIf="f.email.errors.required">email is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="text-info" >Wachtwoord:</label><br>
+              <div class="input-group"><input [type]="show ? 'text' : 'password'" name="password" id="password" class="form-control" formControlName="password"
+                                              required minlength="6" maxlength="50"
+                                              [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+              />
+                <span class="input-group-btn" (click)="password()">
+             <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+                </span></div>
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">Wachtwoord is verplicht</div>
+              <div *ngIf="f.password.errors.minlength">Wachtwoord moet minimaal 6 karakters zijn</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" [disabled]="!registerForm.valid" >
+                <span  class="spinner-border spinner-border-sm mr-1" *ngIf="loading" ></span>
+                Registreren
+              </button>
+              <div id="register-link" class="text-right">
+                <a routerLink="/login" class="text-info">Terug naar inlog pagina</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<h2>Registreren</h2>-->
+<!--<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">-->
+  <!--<div class="form-group">-->
+    <!--<label id="email">Email</label>-->
+    <!--<input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />-->
+    <!--<div *ngIf="submitted && f.email.errors" class="invalid-feedback">-->
+      <!--<div *ngIf="f.email.errors.required">email is required</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+    <!--<label id="password">Wachtwoord</label>-->
+    <!--<input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />-->
+    <!--<div *ngIf="submitted && f.password.errors" class="invalid-feedback">-->
+      <!--<div *ngIf="f.password.errors.required">Wachtwoord is verplicht</div>-->
+      <!--<div *ngIf="f.password.errors.minlength">Wachtwoord moet minimaal 6 karakters zijn</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+    <!--<button [disabled]="loading" class="btn btn-primary" >Registreren</button>-->
+    <!--<img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />-->
+    <!--<a routerLink="/login" class="btn btn-link">Terug</a>-->
+  <!--</div>-->
+<!--</form>-->
+

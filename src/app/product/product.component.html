@@ -1,0 +1,77 @@
+<app-header></app-header>
+
+<!--&lt;!&ndash;<mat-grid-list class = "grid" cols="3" rowHeight="2:1" gutterSize="40px">&ndash;&gt;-->
+  <!--&lt;!&ndash;<mat-grid-tile  class="item" *ngFor="let product of arrProducts "  >&ndash;&gt;-->
+    <!--&lt;!&ndash;<img src="{{product.imagepath}}"&ndash;&gt;-->
+         <!--&lt;!&ndash;[routerLink]="['/products/'+ product.productid]"&ndash;&gt;-->
+    <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;<mat-grid-tile-footer>&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;{{product.price}}&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;</mat-grid-tile-footer>&ndash;&gt;&ndash;&gt;-->
+  <!--&lt;!&ndash;</mat-grid-tile>&ndash;&gt;-->
+  <!--&lt;!&ndash;&lt;!&ndash;<mat-grid-tile class="row" *ngFor=" let product of arrProducts">&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;{{product.price}}&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;&ndash;&gt;&ndash;&gt;-->
+  <!--&lt;!&ndash;&lt;!&ndash;</mat-grid-tile>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;</mat-grid-list>&ndash;&gt;-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+
+<!--<div class="container">-->
+  <!--<h1>Products Lijst</h1>-->
+  <!--<p>U kunt hier uw product kiezen</p>-->
+  <!--<div style="display: flex; justify-content: flex-end">-->
+    <!--<button *ngIf="currentUser && currentUser.role == 'ROLE_ADMIN' " class="btn btn-primary" [routerLink]="['/products/product-create']">Product Toevoegen</button>-->
+  <!--</div>-->
+  <!--<div class="row">-->
+    <!--<div class="col-sm-4"  *ngFor="let product of arrProducts" style="background-color:lavender;">-->
+      <!--<img src="{{product.imagepath}}"-->
+           <!--[routerLink]="['/products/product-info/'+ product.productid]"-->
+      <!--&gt;-->
+      <!--<br>-->
+      <!--<p>{{product.price}}</p>-->
+      <!--<p>{{product.productname}}</p>-->
+    <!--</div>-->
+
+  <!--</div>-->
+
+<!--</div>-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="container">
+  <h3 class="h3">U kunt hier uw electronica producten kiezen</h3>
+  <button *ngIf="currentUser && currentUser.role == 'ROLE_ADMIN' " class="btn btn-primary" [routerLink]="['/products/product-create']">Product Toevoegen</button>
+  <div class="row">
+    <div class="col-md-3 col-sm-6" *ngFor="let product of arrProducts">
+      <div class="product-grid" >
+        <div class="product-image" >
+          <a [routerLink]="['/products/product-info/'+ product.productid]" >
+            <img class="pic-1" src="{{product.imagepath}}">
+          </a>
+          <ul class="social">
+            <!--<li><a [routerLink]="['/products/product-info/'+ product.productid]" data-tip="product details"><i class="fa fa-search"></i></a></li>-->
+            <!--<li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>-->
+            <!--<li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>-->
+          </ul>
+          <span class="product-discount-label">20%</span>
+        </div>
+        <ul class="rating">
+          <li class="fa fa-star"></li>
+          <li class="fa fa-star"></li>
+          <li class="fa fa-star"></li>
+          <li class="fa fa-star"></li>
+          <li class="fa fa-star disable"></li>
+        </ul>
+        <div class="product-content">
+          <!--<h3 class="title"><a href="#">Women's Blouse</a></h3>-->
+          <div class="price"> €{{product.price}}
+            <span>$20.00</span>
+            <p>{{product.productname}}</p>
+          </div>
+
+          <a class="add-to-cart" [routerLink]="['/products/product-info/'+ product.productid]" >Ga naar product details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

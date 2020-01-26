@@ -1,0 +1,142 @@
+<app-header></app-header>
+<!--<h3>Product List</h3>-->
+<!--<div *ngIf="shoppingCartInfoList.length>=1 ; else anders">-->
+  <!--<table border="1">-->
+    <!--<tr>-->
+      <!--<th>Name</th>-->
+      <!--<th>Price</th>-->
+      <!--<th>Aantal</th>-->
+      <!--<th>Totaal</th>-->
+    <!--</tr>-->
+    <!--<tr *ngFor="let item of shoppingCartInfoList">-->
+      <!--<td id="test">{{item.productname}}</td>-->
+      <!--<td id="test1">{{item.price}}</td>-->
+      <!--<td id="test2">-->
+        <!--<i-->
+          <!--class="material-icons" style="cursor: pointer"-->
+          <!--(click)="onAdd(item.productname)">add</i>-->
+        <!--<input [(ngModel)]="item.quantity" readonly style="width: 50px; height: 20px">-->
+        <!--<i-->
+          <!--class="material-icons" style="cursor: pointer" (click)="onRemove(item.productname)">remove</i>-->
+      <!--</td>-->
+      <!--<td id="test3">{{item.quantity * item.price}}</td>-->
+      <!--<td>-->
+        <!--<i class="material-icons" style="cursor: pointer"-->
+           <!--(click)="onDelete(item.productid)"-->
+        <!--&gt;delete</i>-->
+      <!--</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td></td>-->
+      <!--<td></td>-->
+      <!--<td></td>-->
+      <!--<td>{{totalPrice}}</td>-->
+    <!--</tr>-->
+  <!--</table>-->
+
+  <!--<button class="btn btn-primary"-->
+          <!--(click)="onClear(user.uid); paidColor()"-->
+
+
+  <!--&gt;Afrekenen-->
+  <!--</button>-->
+  <!--<button class="btn btn-primary float-right" routerLink="/products">Door met bestellen</button>-->
+<!--</div>-->
+<!--<ng-template #anders>Je shoppingcart is leeg-->
+  <!--<button class="btn btn-primary float-right" routerLink="/products">Door met bestellen</button>-->
+<!--</ng-template>-->
+
+
+<!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">-->
+<!--<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>-->
+<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+<!--&lt;!&ndash;&#45;&#45;&#45;&#45; Include the above in your HEAD tag &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+
+<div class="container" *ngIf="shoppingCartInfoList.length>=1 ; else anders">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-md-offset-1">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Product</th>
+          <th>Aantal</th>
+          <th class="text-center">Prijs</th>
+          <th class="text-center">Totaal</th>
+          <th> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of shoppingCartInfoList">
+          <td class="col-sm-8 col-md-6">
+            <div class="media">
+              <a class="thumbnail pull-left" [routerLink]="'/products/product-info/'+ item.productid"> <img class="media-object"
+                                                            src="{{item.imagepath}}" style="width: 72px; height: 72px;"> </a>
+              <div class="media-body">
+                <h4 class="media-heading"><a [routerLink]="'/products/product-info/'+ item.productid">{{item.productname}}</a></h4>
+                <!--<h5 class="media-heading"> by <a href="#">Brand name</a></h5>-->
+                <!--<span>Status: </span><span class="text-success"><strong>In Stock</strong></span>-->
+              </div>
+            </div></td>
+          <td class="col-sm-1 col-md-1" style="text-align: center">
+            <i
+            class="material-icons" style="cursor: pointer"
+            (click)="onAdd(item.productname)">add</i>
+            <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="item.quantity" readonly>
+            <i
+            class="material-icons" style="cursor: pointer" (click)="onRemove(item.productname)">remove</i>
+          </td>
+          <td class="col-sm-1 col-md-1 text-center"><strong>€{{item.price }}</strong></td>
+          <td class="col-sm-1 col-md-1 text-center"><strong>€{{item.price * item.quantity}}</strong></td>
+          <td *ngIf="showTotalWarning === true" class="alert alert-danger">
+            <p>U kunt maximaal 10 bestellen per item</p>
+          </td>
+          <td class="col-sm-1 col-md-1">
+            <button type="button" class="btn btn-danger" (click)="onDelete(item.productid)">
+              <span class="glyphicon glyphicon-remove" ></span> Remove
+            </button></td>
+        </tr>
+        <tr>
+          <td>   </td>
+          <td>   </td>
+          <td>   </td>
+          <td><h5>Subtotal</h5></td>
+          <td class="text-right"><h5><strong>€{{totalPrice}}</strong></h5></td>
+        </tr>
+        <tr>
+          <td>   </td>
+          <td>   </td>
+          <td>   </td>
+          <td><h5>Bezorg kosten</h5></td>
+          <td class="text-right"><h5><strong>€2.50</strong></h5></td>
+        </tr>
+        <tr>
+          <td>   </td>
+          <td>   </td>
+          <td *ngIf="!betaald">   </td>
+          <td class="alert alert-info" *ngIf="betaald"> U heeft betaald</td>
+          <!--<td>   </td>-->
+          <td id="test1"><h3>Te betalen</h3></td>
+          <td id ="test2" class="text-right"><h3><strong>€{{2.50 + totalPrice}}</strong></h3></td>
+        </tr>
+        <tr>
+          <td>   </td>
+          <td>   </td>
+          <td>   </td>
+          <td>
+            <button type="button" class="btn btn-default" routerLink="/products">
+              <span class="glyphicon glyphicon-shopping-cart"></span>Verder winkelen
+            </button></td>
+          <td>
+            <button type="button" class="btn btn-success" (click)="onClear(user.uid) ; paidColor()">
+              Afrekenen<span class="glyphicon glyphicon-play"></span>
+            </button></td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<ng-template #anders>
+  <p class="alert alert-warning">Uw shoppingcart is leeg. <a routerLink="/products" class="alert-link">Ga verder bestellen</a> </p>
+</ng-template>
