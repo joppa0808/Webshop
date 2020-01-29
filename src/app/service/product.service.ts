@@ -20,7 +20,7 @@ export class ProductService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('test:testtest')
+        'Authorization': 'Basic ' + btoa('joost:testtest')
       })
     };
     return this.http.get<Product>(environment.apiHostname + 'products/' + productId, httpOptions)
@@ -34,7 +34,7 @@ export class ProductService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('test:testtest')
+        'Authorization': 'Basic ' + btoa('joost:testtest')
       })
     };
     return this.http.get<Product>(environment.apiHostname + 'products', httpOptions)

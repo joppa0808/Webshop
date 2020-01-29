@@ -21,7 +21,7 @@ export class ItemsService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('bashar@email.nl:123')
+        'Authorization': 'Basic ' + btoa('joost:testtest')
       })
     };
     return this.http.get<Item>(environment.apiHostname + 'shoppingcarts/' + userId, httpOptions)
@@ -50,7 +50,7 @@ export class ItemsService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('bashar@email.nl:123')
+        'Authorization': 'Basic ' + btoa('joost:testtest')
       })
     };
     const uri = 'shoppingcarts/';
@@ -62,12 +62,12 @@ export class ItemsService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('bashar@email.nl:123')
+        'Authorization': 'Basic ' + btoa('joost:testtest')
       })
     };
     const uri = 'shoppingcarts/';
     console.log(environment.apiHostname + uri + userid);
-    return this.http.delete<void>(environment.apiHostname + uri + userid, httpOptions)
+    return this.http.delete<void>(environment.apiHostname + uri + userid, httpOptions);
 
   }
 }

@@ -21,7 +21,7 @@ export class ShoppingCartService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('bashar@email.nl:123')
+        'Authorization': 'Basic ' + btoa('joost:testtest')
       })
     };
     return this.http.get<Item>(environment.apiHostname + 'shopping-cart/' + userId, httpOptions)
@@ -35,7 +35,7 @@ export class ShoppingCartService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('bashar@email.nl:123')
+        'Authorization': 'Basic ' + btoa('joost:testtest')
       })
     };
     return this.http.get<Product>(environment.apiHostname + 'products', httpOptions)

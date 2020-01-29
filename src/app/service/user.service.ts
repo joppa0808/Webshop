@@ -65,7 +65,7 @@ export class UserService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('test:testtest')
+        'Authorization': 'Basic ' + btoa('joost:testtest')
       })
     };
     return this.http.post(environment.apiHostname + 'users', user, httpOptions);
