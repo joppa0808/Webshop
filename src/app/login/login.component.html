@@ -57,7 +57,7 @@
               <label for="password" class="text-info" >Wachtwoord:</label><br>
               <div class="input-group"><input [type]="show ? 'text' : 'password'" name="password" id="password" class="form-control" formControlName="password"
                                               required minlength="6" maxlength="50"
-                                              [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                                              [ngClass]="{ 'is-invalid': submitted && getLoginFormControls().password.dirty }"
               />
                 <span class="input-group-btn" (click)="password()">
              <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open" ></i></button>

@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   email: User;
   currentUser: any;
   isLoggedIn = false;
-  private shoppingcart= [];
+  shoppingcart = [];
 
   constructor(
     private router: Router,

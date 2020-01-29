@@ -13,14 +13,14 @@ import {showRuleCrashWarning} from 'tslint/lib/error';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
-  private shoppingcart: any = [];
-  private user: any;
-  public shoppingCartInfoList: ShoppingCartInfo [] = [];
-  private shoppingCartInfo: ShoppingCartInfo;
-  private product: Product;
-  private totalPrice = 0;
-  private showTotalWarning;
-  private betaald;
+  shoppingcart: any = [];
+  user: any;
+  shoppingCartInfoList: ShoppingCartInfo [] = [];
+  shoppingCartInfo: ShoppingCartInfo;
+  product: Product;
+  totalPrice = 0;
+  showTotalWarning;
+  betaald;
 
   constructor(private itemsService: ItemsService,
               private authenticationService: AuthenticationService,

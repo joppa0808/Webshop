@@ -19,7 +19,7 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
   private sub: any;
   currentUser: any;
-  private teller;
+  teller;
   private newItem;
   private shoppingcart: any = [];
 
