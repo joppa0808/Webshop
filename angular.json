@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/WebshopAngularFrontend",
+            "outputPath": "dist/WebshopIPWRCFrontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "WebshopAngularFrontend:build"
+            "browserTarget": "WebshopIPWRCFrontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "WebshopAngularFrontend:build:production"
+              "browserTarget": "WebshopIPWRCFrontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "WebshopAngularFrontend:build"
+            "browserTarget": "WebshopIPWRCFrontend:build"
           }
         },
         "test": {
@@ -113,16 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "WebshopAngularFrontend:serve"
+            "devServerTarget": "WebshopIPWRCFrontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "WebshopAngularFrontend:serve:production"
+              "devServerTarget": "WebshopIPWRCFrontend:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "WebshopAngularFrontend"
+  "defaultProject": "WebshopIPWRCFrontend"
 }
