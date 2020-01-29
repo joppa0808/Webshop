@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiHostname: 'http://localhost:8080/api/',
+  apiHostname: 'https://shoppenmetjoost.herokuapp.com/api/',
 };
 
 /*
