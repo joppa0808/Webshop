@@ -4,7 +4,7 @@ const path = require('path');
 
 app.use(express.static(__dirname + '/dist/WebshopIPWRCFrontend'));
 app.get('/*',function (req,res) {
-  res.sendfile(path.join(__dirname+'/dist/WebshopIPWRCFrontend/index.html'));
+  res.sendfile(path.join(__dirname+'/dist/WebshopIPWRCFrontend/products'));
 });
 app.listen(process.env.PORT || 8080);
 
