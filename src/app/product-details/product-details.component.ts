@@ -3,7 +3,6 @@ import {ProductService} from '../service/product.service';
 import {ActivatedRoute, Route, Router} from '@angular/router';
 import {Product} from '../model/product';
 import {AuthenticationService} from '../service/authenticationService';
-import {ShoppingCartService} from '../service/shopping-cart.service';
 import {ItemsService} from '../service/items.service';
 import {Item} from '../model/item';
 
@@ -24,7 +23,7 @@ export class ProductDetailsComponent implements OnInit {
 
 
 
-  private itemIsDouble: boolean;
+  public itemIsDouble: boolean;
 
   constructor(private productService: ProductService, private route: ActivatedRoute,
               private authenticationService: AuthenticationService,
