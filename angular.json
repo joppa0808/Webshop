@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "WebshopAngularFrontend": {
+    "WebshopIPWRCFrontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",

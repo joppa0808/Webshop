@@ -6,7 +6,6 @@ import {AuthenticationService} from '../service/authenticationService';
 import {ShoppingCartService} from '../service/shopping-cart.service';
 import {ItemsService} from '../service/items.service';
 import {Item} from '../model/item';
-import {isArray} from 'util';
 
 @Component({
   selector: 'app-product-details',
@@ -23,7 +22,7 @@ export class ProductDetailsComponent implements OnInit {
   private newItem;
   private shoppingcart: any = [];
 
-  // isDouble = false;
+
 
   private itemIsDouble: boolean;
 
@@ -37,6 +36,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.checkElement();
     this.sub = this.route.params.subscribe(params => {
       this.currentId = params.productId;
       this.productService.getProductById(this.currentId).subscribe(product => {
@@ -56,20 +56,21 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
-  onAddToShoppingCart(productid) {
-    this.newItem = new Item(this.currentUser.uid, productid, this.teller);
+  public onAddToShoppingCart() {
+    this.newItem = new Item(this.currentUser.uid, this.currentId, this.teller);
     this.itemService.save(this.newItem).subscribe(data => {
       this.router.navigate(['/products']);
     });
   }
 
 
-  checkElement() {
+  public checkElement() {
     this.itemService.getItemsByUserId(this.currentUser.uid).subscribe(data => {
       this.shoppingcart = data;
-      if (this.shoppingcart.length >= 1) {
+      if (this.shoppingcart.length * 2 / 2 > 0 && this.shoppingcart !== 'undefined') {
         for (const item of this.shoppingcart) {
-          if (2 * this.currentId === 2 * item.productid) {
+          if (2 * this.currentId  === 2 * item.productid) {
+            console.log('1')
             this.itemIsDouble = true;
             break;
           } else {
@@ -78,33 +79,12 @@ export class ProductDetailsComponent implements OnInit {
           console.log('hoi: ', item.productid);
         }
       } else {
-        this.itemIsDouble =false;
+        this.itemIsDouble = false;
       }
 
 
     });
   }
-
-  checkDoubleItem(){
-
-  }
-
-  // this.itemService.getItemsByUserId(this.currentUser.uid).subscribe(data => {
-  //   if (data) {
-  //     for(let item of isArray(data)){
-  //       if (item.productid === this.currentId) {
-  //         console.log('ben double');
-  //         this.itemIsDouble = true;
-  //       } else {
-  //         console.log('ben uniek');
-  //         this.itemIsDouble = false;
-  //       }
-  //     }
-  //
-  //   } else {
-  //     console.log('ben leeg');
-  //   }
-  // });
 
   onAdd() {
     this.teller += 1;

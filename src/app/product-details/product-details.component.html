@@ -62,50 +62,9 @@
           <p class="product-description">
             {{product.productbeschrijving}}</p>
           <h4 class="price">Huidige prijs: <span>€ {{product.price}}</span></h4>
-          <!--<h5 class="sizes">sizes:-->
-          <!--<span class="size" data-toggle="tooltip" title="small">s</span>-->
-          <!--<span class="size" data-toggle="tooltip" title="medium">m</span>-->
-          <!--<span class="size" data-toggle="tooltip" title="large">l</span>-->
-          <!--<span class="size" data-toggle="tooltip" title="xtra large">xl</span>-->
-          <!--</h5>-->
-          <!--<h5 class="colors">colors:-->
-          <!--<span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>-->
-          <!--<span class="color green"></span>-->
-          <!--<span class="color blue"></span>-->
-          <!--</h5>-->
 
-          <!--<i class="material-icons" *ngIf="currentUser && currentUser.role == 'ROLE_ADMIN' "-->
-          <!--style="cursor: pointer" (click)="onDelete()"-->
-          <!--&gt;delete</i>-->
-          <!--<i *ngIf="currentUser && currentUser.role == 'ROLE_USER' "-->
-          <!--class="material-icons" style="cursor: pointer"-->
-          <!--(click)="onAdd()">add</i>-->
-          <!--&lt;!&ndash;<input [(ngModel)]="teller" class="form-control" id="focusedInput" type="text" readonly&ndash;&gt;-->
-          <!--&lt;!&ndash;style="width: 50px; height: 20px">&ndash;&gt;-->
-          <!--<i *ngIf="currentUser && currentUser.role == 'ROLE_USER' "-->
-          <!--class="material-icons" style="cursor: pointer" (click)="onRemove()">remove</i>-->
-          <!--&lt;!&ndash;<button *ngIf="currentUser && currentUser.role == 'ROLE_USER'"&ndash;&gt;-->
-          <!--&lt;!&ndash;class="btn btn-primary" style="cursor: pointer"&ndash;&gt;-->
-          <!--&lt;!&ndash;(click)="onAddToShoppingCart()"&ndash;&gt;-->
-
-          <!--&lt;!&ndash;&gt;Koop&ndash;&gt;-->
-          <!--&lt;!&ndash;</button>&ndash;&gt;-->
-
-          <!--<div class="input-group">-->
-             <!--<span class="input-group-btn">-->
-             <!--<button class="add-to-cart btn btn-default" *ngIf="currentUser && currentUser.role == 'ROLE_USER' "-->
-                     <!--style="cursor: pointer;height: 30px"-->
-                     <!--(click)="onAdd()" type="button">+</button>-->
-            <!--</span>-->
-            <!--<input type="text" class="form-control" style="width: 50px" [(ngModel)]="teller" readonly-->
-            <!--&gt;-->
-            <!--<span class="input-group-btn">-->
-             <!--<button *ngIf="currentUser && currentUser.role == 'ROLE_USER' "-->
-                     <!--style="cursor: pointer; height: 30px" (click)="onRemove()" class="add-to-cart btn btn-default"-->
-                     <!--type="button">-</button>-->
-            <!--</span>-->
-          <!--</div>-->
-          <div class="quantity">
+          <div *ngIf =" currentUser && itemIsDouble ==false;">
+          <div class="quantity" >
             <button class="plus-btn" type="button" name="button"
                     *ngIf="currentUser && currentUser.role == 'ROLE_USER' "
                     (click)="onAdd()">
@@ -119,7 +78,7 @@
               <img src="../assets/min.png" alt="" />
             </button>
           </div>
-          <div class="action" *ngIf ="itemIsDouble ==false; else: other">
+          <div class="action">
             <button *ngIf="currentUser && currentUser.role == 'ROLE_USER' "
                     (click)="onAddToShoppingCart()"
                     class="btn btn-primary float-lg-left" type="button">Kopen
@@ -132,15 +91,19 @@
             </button>
 
           </div>
-          <ng-template #other>
-            <p class="alert alert-info">Dit product bestaat al in uw winkel, u kunt daar de hoeveelheid updaten</p>
-            <button  [routerLink]="'/shopping-cart/' + currentId" class="btn btn-info">Naar shoppingcart</button>
-          </ng-template>
+
           <!--<p *ngIf="isDouble === true">-->
             <!--de product is al ga naar je winkel-->
           <!--</p>-->
         </div>
+        </div>
+
       </div>
+
+    </div>
+    <div *ngIf="currentUser && itemIsDouble == true">
+      <p class="alert alert-info">Dit product bestaat al in uw winkel, u kunt daar de hoeveelheid updaten</p>
+      <button  [routerLink]="'/shopping-cart/' + currentId" class="btn btn-info">Naar shoppingcart</button>
     </div>
   </div>
 </div>
