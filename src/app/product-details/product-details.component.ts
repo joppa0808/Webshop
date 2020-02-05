@@ -23,7 +23,7 @@ export class ProductDetailsComponent implements OnInit {
   private newItem;
   private shoppingcart: any = [];
 
-  isDouble = false;
+  // isDouble = false;
 
   private itemIsDouble: boolean;
 
@@ -63,32 +63,30 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  notShop(productid) {
-    this.isDouble = true;
-  }
 
-  checkElement(currentId) {
+  checkElement() {
     this.itemService.getItemsByUserId(this.currentUser.uid).subscribe(data => {
       this.shoppingcart = data;
-      let teller = 0;
-      console.log(1);
       if (this.shoppingcart.length >= 1) {
-        console.log(2);
         for (const item of this.shoppingcart) {
-          teller += 1;
-          if (2 * currentId === 2 * item.productid) {
-            this.notShop(currentId);
+          if (2 * this.currentId === 2 * item.productid) {
+            this.itemIsDouble = true;
+            break;
           } else {
-            this.onAddToShoppingCart(currentId);
+            this.itemIsDouble = false;
           }
           console.log('hoi: ', item.productid);
         }
       } else {
-        this.onAddToShoppingCart(currentId);
+        this.itemIsDouble =false;
       }
 
 
     });
+  }
+
+  checkDoubleItem(){
+
   }
 
   // this.itemService.getItemsByUserId(this.currentUser.uid).subscribe(data => {

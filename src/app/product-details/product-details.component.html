@@ -119,9 +119,9 @@
               <img src="../assets/min.png" alt="" />
             </button>
           </div>
-          <div class="action" *ngIf ="isDouble ==false; else: other">
+          <div class="action" *ngIf ="itemIsDouble ==false; else: other">
             <button *ngIf="currentUser && currentUser.role == 'ROLE_USER' "
-                    (click)="checkElement(currentId)"
+                    (click)="onAddToShoppingCart()"
                     class="btn btn-primary float-lg-left" type="button">Kopen
             </button>
 
@@ -134,7 +134,7 @@
           </div>
           <ng-template #other>
             <p class="alert alert-info">Dit product bestaat al in uw winkel, u kunt daar de hoeveelheid updaten</p>
-            <button (click)="notShop(currentId)" [routerLink]="'/shopping-cart/' + currentId" class="btn btn-info">Naar shoppingcart</button>
+            <button  [routerLink]="'/shopping-cart/' + currentId" class="btn btn-info">Naar shoppingcart</button>
           </ng-template>
           <!--<p *ngIf="isDouble === true">-->
             <!--de product is al ga naar je winkel-->
