@@ -80,7 +80,7 @@
     <div class="navbar-header">
       <a class="navbar-brand" routerLink="/products">
         BT<span
-        class="text-danger"> FOR </span>Electronica
+        class="text-danger"> FOR </span>Bloemen
       </a>
     </div>
 
@@ -92,17 +92,17 @@
           <li *ngIf="!isLoggedIn; else: other">
           <!--<p style="float: left; margin-top: 10px; color: #85ad00">Online shoppen</p>-->
             <button type="button" class="btn btn-danger btn-margin-right navbar-btn" routerLink="/login">
-              <i class="fa fa-sign-in" aria-hidden="true"></i> Inloggen
+              <i class="fa fa-sign-in" aria-hidden="true"></i> Login
             </button>
           </li>
           <ng-template #other>
             <ul>
                   <li style="color: white">
-                    Welkom {{currentUser.username}}
+                    Welcome {{currentUser.username}}
                     <!--<button type="button" class="btn btn-success btn-margin-right navbar-btn">Register</button>-->
                   </li>
               <button type="button" class="btn btn-danger btn-margin-right navbar-btn" (click)="logout()">
-                <i class="fa fa-sign-in" aria-hidden="true"></i> Uitloggen
+                <i class="fa fa-sign-in" aria-hidden="true"></i> Log out
               </button>
               <li>
                 <i class="fa" style="font-size:24px; color: white; cursor: pointer" [routerLink]="['/shopping-cart/' + currentUser.uid]">&#xf07a;</i>
