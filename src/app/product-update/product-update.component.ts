@@ -35,11 +35,11 @@ export class ProductUpdateComponent implements OnInit {
       });
     });
     setTimeout(_ => {
-      this.createForm();
+      this.updateForm();
     }, 3000);
   }
 
-  createForm() {
+  updateForm() {
     this.productForm = this.formBuilder.group({
       productname: [this.product.productname, Validators.required],
       price: [this.product.price, [Validators.required]],
@@ -55,7 +55,7 @@ export class ProductUpdateComponent implements OnInit {
   }
 
   onSubmit() {
-    const data = JSON.parse(JSON.stringify(this.product)) as any;
+    const data = JSON.parse(JSON.stringify(this.f)) as any;
     this.productService.updateProduct(data).subscribe(() => {
       console.log(data);
       this.router.navigate(['products']);
