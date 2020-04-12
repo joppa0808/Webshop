@@ -58,7 +58,7 @@ export class ProductUpdateComponent implements OnInit {
     result.productname = Object.assign({}, result.productname);
     result.price = Object.assign({}, result.price);
     result.imagepath = Object.assign({}, result.imagepath);
-    result.productid = Object.assign({}, this.product.productid)
+    result.productid = this.product.productid
     const data = JSON.parse(JSON.stringify(result)) as any;
     this.productService.updateProduct(data).subscribe(() => {
       console.log(data);
