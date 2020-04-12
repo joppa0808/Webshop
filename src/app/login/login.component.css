@@ -12,6 +12,9 @@ body {
   /*background-color: black;*/
   /*!*height: 50vh;*!*/
 }
+label.text-info{
+  color: white;
+}
 /*#login .container #login-row #login-column #login-box {*/
   /*margin-top: 300px;*/
   /*max-width: 600px;*/

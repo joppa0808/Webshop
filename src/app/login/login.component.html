@@ -43,7 +43,7 @@
             <h3 style="color: white; text-align: center" >Hier kunt u zich inloggen of registreren</h3>
             <h4 style="color: white; text-align: center">om mooie bloemen aan te kunnen schaffen</h4>
             <div class="form-group">
-              <label for="email" class="text-info"  style="text-decoration-color: white">Username:</label><br>
+              <label for="email" class="text-info"  style="color: white">Username:</label><br>
               <input type="text" name="email" id="email" class="form-control" formControlName="email" required="" minlength="3" maxlength="100"
                [ngClass]="{ 'is-invalid': !getLoginFormControls().email.valid && getLoginFormControls().email.dirty }"/>
                <div *ngIf="!getLoginFormControls().email.valid && getLoginFormControls().email.dirty" class="invalid-feedback">
@@ -54,7 +54,7 @@
 
             </div>
             <div class="form-group">
-              <label for="password" class="text-info" style="text-decoration-color: white">Password:</label><br>
+              <label for="password" class="text-info" style="color: white">Password:</label><br>
               <div class="input-group"><input [type]="show ? 'text' : 'password'" name="password" id="password" class="form-control" formControlName="password"
                                               required minlength="6" maxlength="50"
                                               [ngClass]="{ 'is-invalid': submitted && getLoginFormControls().password.dirty }"
@@ -69,7 +69,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="remember-me" class="text-info"  style="text-decoration-color: white"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+              <label for="remember-me" class="text-info"  style="color: white"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
               <button [disabled]="!loginForm.valid" class="btn btn-primary">
                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                 Login
