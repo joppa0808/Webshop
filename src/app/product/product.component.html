@@ -39,7 +39,7 @@
 <!--</div>-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 <div class="container">
-  <h3 class="h3">U kunt hier uw electronica producten kiezen</h3>
+  <h3 class="h3">Kies hier de juiste bloemen voor u. </h3>
   <button *ngIf="currentUser && currentUser.role == 'ROLE_ADMIN' " class="btn btn-primary" [routerLink]="['/products/product-create']">Product Toevoegen</button>
   <div class="row">
     <div class="col-md-3 col-sm-6" *ngFor="let product of arrProducts">
@@ -48,12 +48,6 @@
           <a [routerLink]="['/products/product-info/'+ product.productid]" >
             <img class="pic-1" src="{{product.imagepath}}">
           </a>
-          <ul class="social">
-            <!--<li><a [routerLink]="['/products/product-info/'+ product.productid]" data-tip="product details"><i class="fa fa-search"></i></a></li>-->
-            <!--<li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>-->
-            <!--<li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>-->
-          </ul>
-          <span class="product-discount-label">20%</span>
         </div>
         <ul class="rating">
           <li class="fa fa-star"></li>
@@ -63,7 +57,6 @@
           <li class="fa fa-star disable"></li>
         </ul>
         <div class="product-content">
-          <!--<h3 class="title"><a href="#">Women's Blouse</a></h3>-->
           <div class="price"> €{{product.price}}
             <span>$20.00</span>
             <p>{{product.productname}}</p>
