@@ -12,7 +12,7 @@ import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 export class ProductUpdateComponent implements OnInit {
 
   product: Product;
-  createForm: FormGroup;
+  updateForm: FormGroup;
   sub: any;
   currentId: number;
   loading = true;
@@ -34,19 +34,20 @@ export class ProductUpdateComponent implements OnInit {
         this.product = product;
       });
     });
-    this.createForm = this.formBuilder.group({
+    this.updateForm = this.formBuilder.group({
       productname: ['', Validators.required],
       price: ['', [Validators.required]],
       imagepath: ['', [Validators.required]],
       productbeschrijving: ['', [Validators.required]]
     });
 
-    this.createForm.setValue({productname: this.product.productname, price: this.product.price, imagepath: this.product.imagepath,
+    this.updateForm.setValue({productname: this.product.productname, price: this.product.price, imagepath: this.product.imagepath,
       productbeschrijving: this.product.productbeschrijving});
+    console.log(this.updateForm.value);
   }
 
   get f() {
-    return this.createForm.controls;
+    return this.updateForm.controls;
   }
 
   onSubmit() {
