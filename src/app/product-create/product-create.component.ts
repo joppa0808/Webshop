@@ -33,8 +33,6 @@ export class ProductCreateComponent implements OnInit {
       imagepath: ['', [Validators.required]],
       productbeschrijving: ['', [Validators.required]]
     });
-    this.createForm.setValue({productname: this.product.productname, price: this.product.price, imagepath: this.product.imagepath,
-      productbeschrijving: this.product.productbeschrijving});
   }
   get f() {
     return this.createForm.controls;

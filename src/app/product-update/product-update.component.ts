@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../model/product';
 import {ProductService} from '../service/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FormGroup, NgForm} from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-product-update',
@@ -21,6 +21,7 @@ export class ProductUpdateComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private router: Router,
+              private formBuilder: FormBuilder,
               private route: ActivatedRoute
   ) {
   }
@@ -33,6 +34,15 @@ export class ProductUpdateComponent implements OnInit {
         this.product = product;
       });
     });
+    this.createForm = this.formBuilder.group({
+      productname: ['', Validators.required],
+      price: ['', [Validators.required]],
+      imagepath: ['', [Validators.required]],
+      productbeschrijving: ['', [Validators.required]]
+    });
+
+    this.createForm.setValue({productname: this.product.productname, price: this.product.price, imagepath: this.product.imagepath,
+      productbeschrijving: this.product.productbeschrijving});
   }
 
   get f() {
