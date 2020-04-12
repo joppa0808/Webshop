@@ -17,6 +17,7 @@ export class ProductUpdateComponent implements OnInit {
   currentId: number;
   loading = false;
   submitted = false;
+  a: string;
 
 
   constructor(private productService: ProductService,
@@ -32,10 +33,11 @@ export class ProductUpdateComponent implements OnInit {
       this.productService.getProductById(this.currentId).subscribe(product => {
         console.log(product.productid)
         this.product = product;
+        this.a = product.productname;
       });
     });
     this.updateForm = this.formBuilder.group({
-      productname: [this.product.productname, Validators.required],
+      productname: [this.a, Validators.required],
       price: [this.product.price, [Validators.required]],
       imagepath: [this.product.imagepath, [Validators.required]],
       productbeschrijving: [this.product.productbeschrijving, [Validators.required]]
