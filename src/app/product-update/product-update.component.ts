@@ -15,7 +15,7 @@ export class ProductUpdateComponent implements OnInit {
   createForm: FormGroup;
   sub: any;
   currentId: number;
-  loading: true;
+  loading = true;
   submitted = false;
 
 
@@ -39,7 +39,7 @@ export class ProductUpdateComponent implements OnInit {
     return this.createForm.controls;
   }
 
-  ngSubmit(f: NgForm) {
+  onSubmit() {
     const data = JSON.parse(JSON.stringify(this.product)) as any;
     this.productService.updateProduct(data).subscribe(() => {
       this.router.navigate(['products']);
