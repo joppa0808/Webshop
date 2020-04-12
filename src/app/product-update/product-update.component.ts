@@ -46,8 +46,6 @@ export class ProductUpdateComponent implements OnInit {
       imagepath: [this.product.imagepath, [Validators.required]],
       productbeschrijving: [this.product.productbeschrijving, [Validators.required]]
     });
-    console.log('testtest');
-    console.log(this.productForm.value + 'testtest');
   }
 
   get f() {
