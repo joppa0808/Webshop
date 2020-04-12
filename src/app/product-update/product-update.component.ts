@@ -12,12 +12,11 @@ import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 export class ProductUpdateComponent implements OnInit {
 
   product: Product;
-  updateForm: FormGroup;
+  productForm: FormGroup;
   sub: any;
   currentId: number;
   loading = false;
   submitted = false;
-  a: string;
 
 
   constructor(private productService: ProductService,
@@ -33,23 +32,22 @@ export class ProductUpdateComponent implements OnInit {
       this.productService.getProductById(this.currentId).subscribe(product => {
         console.log(product.productid)
         this.product = product;
-        this.a = product.productname;
       });
     });
-    this.updateForm = this.formBuilder.group({
-      productname: ['this.a', Validators.required],
+    this.productForm = this.formBuilder.group({
+      productname: [this.product.productname, Validators.required],
       price: [this.product.price, [Validators.required]],
       imagepath: [this.product.imagepath, [Validators.required]],
       productbeschrijving: [this.product.productbeschrijving, [Validators.required]]
     });
     console.log('testtest');
-    console.log(this.updateForm.value + 'testtest');
+    console.log(this.productForm.value + 'testtest');
 
 
   }
 
   get f() {
-    return this.updateForm.controls;
+    return this.productForm.controls;
   }
 
   onSubmit() {

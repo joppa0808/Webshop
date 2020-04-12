@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <h2>Product updaten</h2>
-<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+<form *ngIf="product" [formGroup]="productForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label id="productname">Productname</label>
     <input type="text" formControlName="productname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productname.errors }" />
