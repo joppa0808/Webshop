@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../model/product';
 import {ProductService} from '../service/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {NgForm} from '@angular/forms';
+import {FormGroup, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-product-update',
@@ -12,9 +12,12 @@ import {NgForm} from '@angular/forms';
 export class ProductUpdateComponent implements OnInit {
 
   product: Product;
+  createForm: FormGroup;
   sub: any;
   currentId: number;
   loading: true;
+  submitted = false;
+
 
   constructor(private productService: ProductService,
               private router: Router,
@@ -30,6 +33,10 @@ export class ProductUpdateComponent implements OnInit {
         this.product = product;
       });
     });
+  }
+
+  get f() {
+    return this.createForm.controls;
   }
 
   ngSubmit(f: NgForm) {
