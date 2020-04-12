@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../model/product';
 import {ProductService} from '../service/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-product-update',
@@ -34,11 +34,11 @@ export class ProductUpdateComponent implements OnInit {
         this.product = product;
       });
     });
-    this.productForm = this.formBuilder.group({
-      productname: [this.product.productname, Validators.required],
-      price: [this.product.price, [Validators.required]],
-      imagepath: [this.product.imagepath, [Validators.required]],
-      productbeschrijving: [this.product.productbeschrijving, [Validators.required]]
+    this.productForm = new FormGroup({
+      productname: new FormControl(this.product.productname),
+      price: new FormControl(this.product.price),
+      imagepath: new FormControl(this.product.imagepath),
+      productbeschrijving: new FormControl(this.product.productbeschrijving)
     });
     console.log('testtest');
     console.log(this.productForm.value + 'testtest');
