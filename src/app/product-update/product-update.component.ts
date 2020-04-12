@@ -15,7 +15,7 @@ export class ProductUpdateComponent implements OnInit {
   updateForm: FormGroup;
   sub: any;
   currentId: number;
-  loading = true;
+  loading = false;
   submitted = false;
 
 
@@ -40,10 +40,9 @@ export class ProductUpdateComponent implements OnInit {
       imagepath: ['', [Validators.required]],
       productbeschrijving: ['', [Validators.required]]
     });
-
     this.updateForm.setValue({productname: this.product.productname, price: this.product.price, imagepath: this.product.imagepath,
       productbeschrijving: this.product.productbeschrijving});
-    console.log(this.updateForm.value);
+    console.log(this.updateForm.value + 'testtest');
   }
 
   get f() {
