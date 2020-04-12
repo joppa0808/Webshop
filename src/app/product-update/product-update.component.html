@@ -4,28 +4,28 @@
 <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label id="productname">Productname</label>
-    <input type="text" formControlName="productname" class="form-control" [(ngModel)]="product.productname" [ngClass]="{ 'is-invalid': submitted && f.productname.errors }" />
+    <input type="text" formControlName="productname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productname.errors }" />
     <div *ngIf="submitted && f.productname.errors" class="invalid-feedback">
       <div *ngIf="f.productname.errors.required">productname is required</div>
     </div>
   </div>
   <div class="form-group">
     <label id="price">Prijs</label>
-    <input type="text" formControlName="price" class="form-control" [(ngModel)]="product.price"[ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+    <input type="text" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
     <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
       <div *ngIf="f.price.errors.required">price is verplicht</div>
     </div>
   </div>
   <div class="form-group">
     <label id="productbeschrijving">Productbeschrijving</label>
-    <input type="text" formControlName="productbeschrijving" class="form-control" [(ngModel)]="product.productbeschrijving" [ngClass]="{ 'is-invalid': submitted && f.productbeschrijving.errors }" />
+    <input type="text" formControlName="productbeschrijving" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.productbeschrijving.errors }" />
     <div *ngIf="submitted && f.productbeschrijving.errors" class="invalid-feedback">
       <div *ngIf="f.productbeschrijving.errors.required">productbeschrijving is verplicht</div>
     </div>
   </div>
   <div class="form-group">
     <label id="imagepath">imagepath</label>
-    <input type="text" formControlName="imagepath" class="form-control" [(ngModel)]="product.imagepath" [ngClass]="{ 'is-invalid': submitted && f.imagepath.errors }" />
+    <input type="text" formControlName="imagepath" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.imagepath.errors }" />
     <div *ngIf="submitted && f.imagepath.errors" class="invalid-feedback">
       <div *ngIf="f.imagepath.errors.required">imagepath is verplicht</div>
     </div>
