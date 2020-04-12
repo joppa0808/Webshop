@@ -54,7 +54,7 @@
 
             </div>
             <div class="form-group">
-              <label for="password""><span style="color: white">Password:</span></label><br>
+              <label for="password"><span style="color: white">Password:</span></label><br>
               <div class="input-group"><input [type]="show ? 'text' : 'password'" name="password" id="password" class="form-control" formControlName="password"
                                               required minlength="6" maxlength="50"
                                               [ngClass]="{ 'is-invalid': submitted && getLoginFormControls().password.dirty }"
