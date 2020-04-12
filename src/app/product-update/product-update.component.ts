@@ -37,12 +37,14 @@ export class ProductUpdateComponent implements OnInit {
       });
     });
     this.updateForm = this.formBuilder.group({
-      productname: [this.a, Validators.required],
+      productname: ['this.a', Validators.required],
       price: [this.product.price, [Validators.required]],
       imagepath: [this.product.imagepath, [Validators.required]],
       productbeschrijving: [this.product.productbeschrijving, [Validators.required]]
     });
+    console.log('testtest');
     console.log(this.updateForm.value + 'testtest');
+
 
   }
 
