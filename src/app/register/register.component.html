@@ -1,13 +1,13 @@
 <app-header></app-header>
 <div id="register-form" >
-  <div class="container" style="background-color: #2c3e50">
+  <div class="container" style="background-color: #4298f5">
     <div id="login-row" class="row justify-content-center align-items-center">
       <div id="login-column" class="col-md-6">
         <div id="login-box" class="col-md-12">
           <form id="login-form" class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <h3 style="color: white; text-align: center" >Hier kunt u registreren</h3>
             <div class="form-group">
-              <label for="email" class="text-info" >E-mail:</label><br>
+              <label for="email" style="color: white">E-mail:</label><br>
               <input type="text" name="email" id="email" class="form-control" formControlName="email" required="" minlength="3" maxlength="100"
                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
                      />
@@ -16,7 +16,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="password" class="text-info" >Wachtwoord:</label><br>
+              <label for="password" style="color: white">Wachtwoord:</label><br>
               <div class="input-group"><input [type]="show ? 'text' : 'password'" name="password" id="password" class="form-control" formControlName="password"
                                               required minlength="6" maxlength="50"
                                               [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
@@ -35,7 +35,7 @@
                 Registreren
               </button>
               <div id="register-link" class="text-right">
-                <a routerLink="/login" class="text-info">Terug naar inlog pagina</a>
+                <a routerLink="/login" style="color: white">Terug naar inlog pagina</a>
               </div>
             </div>
           </form>
