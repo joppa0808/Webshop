@@ -54,11 +54,8 @@ export class ProductUpdateComponent implements OnInit {
 
   onSubmit() {
     const result: Product = Object.assign({}, this.productForm.value);
-    result.productbeschrijving = Object.assign({}, result.productbeschrijving);
-    result.productname = Object.assign({}, result.productname);
-    result.price = Object.assign({}, result.price);
-    result.imagepath = Object.assign({}, result.imagepath);
-    result.productid = this.product.productid
+    result.productid = this.product.productid;
+    console.log(result);
     const data = JSON.parse(JSON.stringify(result)) as any;
     this.productService.updateProduct(data).subscribe(() => {
       console.log(data);
