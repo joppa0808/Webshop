@@ -1,30 +1,4 @@
 <app-header></app-header>
-<!--{{product.productname}}-->
-<!--{{product.price}}-->
-<!--<img src="{{product.imagepath}}">-->
-<!--<i *ngIf="currentUser && currentUser.role == 'ROLE_ADMIN' "-->
-<!--class="material-icons" style="cursor: pointer" (click)="onDelete()"-->
-<!--&gt;delete</i>-->
-<!--<i *ngIf="currentUser && currentUser.role == 'ROLE_USER' "-->
-<!--class="material-icons" style="cursor: pointer"-->
-<!--(click)="onAdd()">add</i>-->
-<!--<input [(ngModel)]="teller" readonly style="width: 50px; height: 20px">-->
-<!--<i *ngIf="currentUser && currentUser.role == 'ROLE_USER' "-->
-<!--class="material-icons" style="cursor: pointer" (click)="onRemove()">remove</i>-->
-<!--<button *ngIf="currentUser && currentUser.role == 'ROLE_USER'"-->
-<!--class="btn btn-primary" style="cursor: pointer"-->
-<!--(click)="onAddToShoppingCart()"-->
-
-<!--&gt;Koop-->
-<!--</button>-->
-<!--<ng-template #other_content>-->
-<!--<p>item is al added</p>-->
-<!--</ng-template>-->
-
-<!--<i *ngIf="currentUser && currentUser.role == 'ROLE_ADMIN' "-->
-<!--class="material-icons" style="cursor: pointer"-->
-<!--[routerLink]="['/products/product-update/'+ product.productid]"-->
-<!--&gt;create</i>-->
 <div class="container">
   <div class="card">
     <div class="container-fliud">
@@ -33,17 +7,8 @@
 
           <div class="preview-pic tab-content">
             <div class="tab-pane active" id="pic-1"><img src="{{product.imagepath}}"/></div>
-            <!--<div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>-->
-            <!--<div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>-->
-            <!--<div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>-->
-            <!--<div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>-->
           </div>
           <ul class="preview-thumbnail nav nav-tabs">
-            <!--<li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>-->
-            <!--<li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>-->
-            <!--<li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>-->
-            <!--<li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>-->
-            <!--<li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>-->
           </ul>
 
         </div>
@@ -81,10 +46,6 @@
             </button>
 
           </div>
-
-          <!--<p *ngIf="isDouble === true">-->
-            <!--de product is al ga naar je winkel-->
-          <!--</p>-->
         </div>
         </div>
 
@@ -92,7 +53,7 @@
 
     </div>
     <div *ngIf="currentUser && itemIsDouble == true">
-      <p class="alert alert-info">Dit product bestaat al in uw winkel, u kunt daar de hoeveelheid updaten</p>
+      <p class="alert alert-info">Dit product zit al in uw winkelwagen, u kunt daar de hoeveelheid aanpassen</p>
       <button  [routerLink]="'/shopping-cart/' + currentId" class="btn btn-info">Naar shoppingcart</button>
     </div>
   </div>

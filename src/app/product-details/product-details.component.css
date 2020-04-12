@@ -1,5 +1,4 @@
 
-/*****************globals*************/
 body {
   font-family: 'open sans';
   overflow-x: hidden; }
@@ -87,7 +86,7 @@ img {
   font-weight: bold; }
 
 .checked, .price span {
-  color: #ff9f1a; }
+  color: #000000; }
 
 .product-title, .rating, .product-description, .price, .vote, .sizes {
   margin-bottom: 15px; }
@@ -198,4 +197,3 @@ button:focus,
 input:focus {
   outline:0;
 }
-/*# sourceMappingURL=style.css.map */

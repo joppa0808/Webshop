@@ -1,13 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../service/product.service';
-import {HttpClient} from '@angular/common/http';
-import {ActivatedRoute, ActivatedRouteSnapshot, Router} from '@angular/router';
 import {Product} from '../model/product';
-import {User} from '../model/user';
-import {Subscription} from 'rxjs';
 import {AuthenticationService} from '../service/authenticationService';
-import {UserService} from '../service/user.service';
-import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-product',
@@ -29,13 +23,7 @@ export class ProductComponent implements OnInit {
     this.productService.getProducts().subscribe(data => {
       this.arrProducts = data;
     });
-
-
   }
-
-
-
-
 
 }
 

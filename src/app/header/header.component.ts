@@ -4,10 +4,6 @@ import {UserService} from '../service/user.service';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../service/authenticationService';
 import {ItemsService} from '../service/items.service';
-import {ShoppingCartInfo} from '../model/shoppingCartInfo';
-import {ShoppingCart} from '../model/shoppingCart';
-import {Item} from '../model/item';
-import {isArray} from 'util';
 
 @Component({
   selector: 'app-header',
